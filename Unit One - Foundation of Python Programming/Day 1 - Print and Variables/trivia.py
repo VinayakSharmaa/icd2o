@@ -1,0 +1,8 @@
+print("Question: What month does Black History Month take place?")
+print()
+print("A) June")
+print("B) March")
+print("C) February")
+print("D) September")
+print()
+print("The correct answer was C) February!")
