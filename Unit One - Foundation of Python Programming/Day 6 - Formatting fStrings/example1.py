@@ -3,7 +3,7 @@ print(f"{average}")
 print(f"{average:.2f}") # This rounds the decimal to 2 places
 print(f"{average:.3f}")
 
-number = 6.1
+number = 6.2
 print(f"{number:.2f}") # Adds a 0 to 6.1 making it 6.10
 
 number = 6

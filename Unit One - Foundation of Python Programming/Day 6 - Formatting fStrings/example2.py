@@ -7,4 +7,4 @@ print(f"{name:>10}")
 
 print(f"{name:<20}Dev") # name is left aligned
 
-print(f"{name:^20}") # the symvol ^ centers it
+print(f"{name:^20}") # the symbol ^ centers it
