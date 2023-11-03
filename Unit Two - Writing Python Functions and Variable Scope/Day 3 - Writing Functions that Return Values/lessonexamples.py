@@ -1,3 +1,4 @@
+
 import math
 
 # arguments:
@@ -35,3 +36,12 @@ def larger_string(string_a, string_b):
     
 def first_two(str):
     return str[0:2]
+
+def test_return_twice():
+    a = 7
+    return 
+    a = 8 # never happens -> unreachable code
+    return a
+
+
+print(test_return_twice())
