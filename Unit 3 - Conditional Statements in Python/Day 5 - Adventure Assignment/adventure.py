@@ -1,4 +1,4 @@
-import random # Imports random function so we can randomize health
+import random # Imports random function so we can randomize health and damage
 
 def create_character(): 
     char_health = random.randint(35, 70) # Randomizes health between a certain point
@@ -79,8 +79,9 @@ def encounter_scenario(char_class, current_health):
         if fight_option == 1 and char_class == 'Warrior': 
             print("You attacked the cyclops with your sword and attacked it! It is weakened but not out!") 
             print("The cyclops attacked back!")
-            cyclops_damage = random.randint(35, 70)
+            cyclops_damage = random.randint(50, 100)
             manage_health(current_health, cyclops_damage)
+            
             if current_health > 0: 
 
                 print("You are down but not out! What would you like to do now?")
@@ -91,6 +92,8 @@ def encounter_scenario(char_class, current_health):
 
                 if fight_option_1a == 1: 
                     print("You attacked the cyclops with your sword and finished it off!") 
+                    end_game()
+                    return
             
                 if fight_option_1a == 2 and received_totem == True: 
                     print("Which item would you like to use? You currently have 1 item.")
@@ -111,9 +114,10 @@ def encounter_scenario(char_class, current_health):
         if fight_option == 1 and char_class == 'Mage': 
             print("You attacked the cyclops with your magic wand and attacked it! It is weakened but not out!")
             print("The cyclops attacked back!")
-            cyclops_damage = random.randint(35, 70)
-            cyclops_damage = random.randint(35, 70)
+            cyclops_damage = random.randint(50, 100)
+            
             manage_health(current_health, cyclops_damage)
+            
             if current_health > 0: 
 
                 print("You are down but not out! What would you like to do now?")
@@ -123,19 +127,21 @@ def encounter_scenario(char_class, current_health):
                 fight_option_1a = int(input("Please enter your choice: "))
 
                 if fight_option_1a == 1: 
-                    print("You attacked the cyclops with your sword and finished it off!") 
+                    print("You attacked the cyclops with your staff and finished it off!") 
+                    end_game()
+                    return
             
                 if fight_option_1a == 2 and received_totem == True: 
                     print("Which item would you like to use? You currently have 1 item.")
                     print("1. Totem")
-                    item_use = input("Please enter the item of usage: ")
+                    item_use_1 = input("Please enter the item of usage: ")
             
-                    if item_use == 1: 
+                    if item_use_1 == 1: 
                         print("You used your totem and vanquished the monster!")
                         end_game()
                         return
 
-                    elif item_use not in [1]: 
+                    elif item_use_1 not in [1]: 
                         print("You got scared and didn't use an item and the cyclops killed you!")
                         end_game()
                         return
@@ -170,15 +176,15 @@ def encounter_scenario(char_class, current_health):
             
         
         if fight_option == 3: 
-            print("You tried to plead with the Cyclops and he didn't listen and used your head as a basketball!")
+            print("You tried to plead with the Cyclops and he didn't listen and used your head as a basketball! (he dunked that)")
             current_health = 0
             end_game()
             return
 
-def manage_health(current_health, damage_taken): 
-    current_health = char_health - damage_taken
+def manage_health(current_health, cyclops_damage): 
+    current_health = char_health - cyclops_damage
 
-    print(f"Your damage taken during the encounter is {damage_taken}")
+    print(f"Your damage taken during the encounter is {cyclops_damage}")
 
     print(f"Your current health after the fight is {current_health}")
     
@@ -186,6 +192,8 @@ def manage_health(current_health, damage_taken):
         print("You have died! Game Over! Your game has ended.")
         end_game()
         return
+    
+    
 
 print("Welcome to my Game!")
 char_class, char_health, char_name = create_character()
