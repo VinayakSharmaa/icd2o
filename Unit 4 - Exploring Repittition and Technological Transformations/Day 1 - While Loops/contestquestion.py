@@ -19,4 +19,4 @@ while count < num_peppers:
     count += 1
 
 print(total)
-    
+    oooi
