@@ -17,8 +17,8 @@ def read_baseball_data(file_path):
 
 # Function to display all baseball player statistics
 def display_all_baseball_stats(names, hits, runs, rbis):
-    # TODO: Implement the function
-    pass
+    for index in range(len(names)): 
+        print(f"{names[index]:<25}|{hits[index]:>6}|{runs[index]:>6}|{rbis[index]:>6}")
 
 # Function to calculate and display average baseball statistics
 def calculate_and_display_average(hits, runs, rbis):
@@ -27,8 +27,23 @@ def calculate_and_display_average(hits, runs, rbis):
 
 # Function to identify the baseball player with the highest stats in a category
 def stat_leader(category):
-    # TODO: Implement the function
-    pass
+    maxIndex = 0
+
+    for index in range(len(names)):
+        if category == "Hits": 
+            if hits[maxIndex] < hits[index]: # Do we have a new biggest?
+                maxIndex = index 
+        elif category == 'RBIs': 
+            if rbis[maxIndex] < rbis[index]:  # Do we have a new biggest?
+                maxIndex = index
+    
+    if category == "Hits": 
+        print(f"The player with the most {category} is {names[maxIndex]}")
+    elif category == "RBIs": 
+        print(f"The player with the most RBIS is {names[maxIndex]}")
+
+
+        
 
 # Function to display the top 10 players in a specified category
 def display_top_10_in_category(category):
